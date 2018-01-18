@@ -1,17 +1,36 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import Colors from '../constants/Colors';
-import { PictureList } from '../components/Card'
+import { PictureList } from '../components/Card';
+import { API_ENDPOINT } from '../config/api';
+import Config from 'react-native-config';
 
 export default class Main extends Component {
+  constructor(props){
+  	super(props);
+    this.state = {
+      images: []
+    }
+  }
+
+  componentWillMount() {
+    let self = this;
+
+    fetch(`${API_ENDPOINT}/projects?api_key=${Config.BEHANCE_API_KEY}`, {})
+      .then(response => {
+        self.setState({images: JSON.parse(response._bodyInit).projects.slice(0, 8)})
+      });
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Featured</Text>
-        <PictureList />
-        <PictureList />
-        <PictureList />
-        <PictureList />
+        <ScrollView>
+          {this.state.images.map((image, index) => (
+            <PictureList src={image.covers.original} key={index} />
+          ))}
+        </ScrollView>
       </View>
     );
   }

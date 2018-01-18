@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     margin: 8,
     flex: 1,
-    backgroundColor: Colors.grey
+    borderWidth: 0.5,
+    borderColor: Colors.grey,
   }
 });
 
