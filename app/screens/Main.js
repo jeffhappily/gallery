@@ -1,25 +1,13 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
+import { fetchFeaturedImages } from '../actions/images';
 import Colors from '../constants/Colors';
 import { PictureList } from '../components/Card';
-import { API_ENDPOINT } from '../config/api';
-import Config from 'react-native-config';
 
-export default class Main extends Component {
-  constructor(props){
-  	super(props);
-    this.state = {
-      images: []
-    }
-  }
-
+class Main extends Component {
   componentWillMount() {
-    let self = this;
-
-    fetch(`${API_ENDPOINT}/projects?api_key=${Config.BEHANCE_API_KEY}`, {})
-      .then(response => {
-        self.setState({images: JSON.parse(response._bodyInit).projects.slice(0, 8)})
-      });
+    this.props.fetchImages()
   }
 
   render() {
@@ -27,7 +15,7 @@ export default class Main extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Featured</Text>
         <ScrollView>
-          {this.state.images.map((image, index) => (
+          {this.props.images.featured.map((image, index) => (
             <PictureList src={image.covers.original} key={index} />
           ))}
         </ScrollView>
@@ -54,3 +42,15 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   }
 });
+
+const mapStateToProps = state => ({
+  images: state.images
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchImages: () => {
+    dispatch(fetchFeaturedImages())
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
