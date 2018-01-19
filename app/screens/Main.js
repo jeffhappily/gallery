@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchFeaturedImages } from '../actions/images';
 import Colors from '../constants/Colors';
-import { PictureList } from '../components/Card';
+import { PictureList } from '../components/List';
 
 class Main extends Component {
   componentWillMount() {
@@ -15,9 +15,9 @@ class Main extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Featured</Text>
         <ScrollView>
-          {this.props.images.featured.map((image, index) => (
-            <PictureList src={image.covers.original} key={index} />
-          ))}
+          <PictureList
+            images={this.props.images.featured}
+            onPicturePress={image => this.props.navigation.navigate('PictureShow', {image})} />
         </ScrollView>
       </View>
     );
