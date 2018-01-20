@@ -11,15 +11,11 @@ export default class PictureShow extends Component {
     headerTintColor: Colors.white,
     headerStyle: {
       elevation: 0,
-      // height: heightPercentage(8),
-      // borderBottomColor: 'transparent',
-      backgroundColor: 'transparent',
+      backgroundColor: 'rgba(0, 0, 0, 0.15)',
       position: 'absolute',
       top: -2,
       left: 0,
       right: 0,
-      // alignSelf: 'center',
-      // borderBottomWidth: 0,
     },
   });
 
