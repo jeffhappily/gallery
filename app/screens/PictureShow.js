@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Lightbox from 'react-native-lightbox';
 
 import Link from '../components/Link';
 import Colors from '../constants/Colors';
-
 
 export default class PictureShow extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -27,9 +27,11 @@ export default class PictureShow extends Component {
     let image = this.props.navigation.state.params.image;
     return (
       <ScrollView style={styles.container}>
-        <Image
-          source={{ uri: image.covers.original }}
-          style={styles.image} />
+        <Lightbox>
+          <Image
+            source={{ uri: image.covers.original }}
+            style={styles.image} />
+        </Lightbox>
         <View style={styles.details}>
           <Text style={styles.title}>{image.name}</Text>
           <Text style={styles.smallText}>by {image.owners[0].display_name}</Text>
