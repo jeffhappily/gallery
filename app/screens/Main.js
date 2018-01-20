@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'left',
     margin: 10,
-    color: Colors.mainBlack
+    color: Colors.darkGrey
   },
   pictureList: {
     flexDirection: 'row',

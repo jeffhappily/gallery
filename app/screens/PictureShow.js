@@ -1,17 +1,68 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import Link from '../components/Link';
 import Colors from '../constants/Colors';
 
+
 export default class PictureShow extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerTintColor: Colors.white,
+    headerStyle: {
+      elevation: 0,
+      // height: heightPercentage(8),
+      // borderBottomColor: 'transparent',
+      backgroundColor: 'transparent',
+      position: 'absolute',
+      top: -2,
+      left: 0,
+      right: 0,
+      // alignSelf: 'center',
+      // borderBottomWidth: 0,
+    },
+  });
+
+  componentWillMount() {
+    // debugger
+  }
+
   render() {
     let image = this.props.navigation.state.params.image;
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Image
           source={{ uri: image.covers.original }}
           style={styles.image} />
-        <Text style={styles.title}>{image.name}</Text>
-      </View>
+        <View style={styles.details}>
+          <Text style={styles.title}>{image.name}</Text>
+          <Text style={styles.smallText}>by {image.owners[0].display_name}</Text>
+        </View>
+        <View style={[styles.stats, styles.details]}>
+          <View style={styles.column}>
+            <Text style={styles.paragraph}>{image.stats.views}</Text>
+            <Text style={styles.smallText}>Views</Text>
+          </View>
+          <View style={styles.column}>
+            <Text style={styles.paragraph}>{image.stats.appreciations}</Text>
+            <Text style={styles.smallText}>Likes</Text>
+          </View>
+          <View style={styles.column}>
+            <Text style={styles.paragraph}>{image.stats.comments}</Text>
+            <Text style={styles.smallText}>Comments</Text>
+          </View>
+        </View>
+        <View style={styles.details}>
+          <View style={styles.row}>
+            <Text style={styles.paragraph}>Fields</Text>
+            <Text style={styles.smallText}>{image.fields.join(", ")}</Text>
+          </View>
+          <View style={styles.row}>
+            <Text style={styles.paragraph}>Website</Text>
+            <Link style={styles.smallText} url={image.url}>{image.url}</Link>
+          </View>
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -19,27 +70,40 @@ export default class PictureShow extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingLeft: 10,
-    paddingRight: 10
+  },
+  details: {
+    padding: 15,
+    paddingLeft: 20
   },
   title: {
-    fontSize: 35,
+    fontSize: 25,
     fontWeight: 'bold',
-    textAlign: 'left',
-    margin: 10,
-    color: Colors.mainBlack
+    color: Colors.darkGrey
   },
-  pictureList: {
+  paragraph: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: Colors.darkGrey
+  },
+  smallText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: Colors.quiteGrey
+  },
+  stats: {
+    paddingTop: 25,
+    paddingBottom: 25,
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    alignItems: 'center',
+    backgroundColor: Colors.kindOfGrey
+  },
+  column: {
+    flex: 1
   },
   image: {
-    // alignSelf: 'stretch',
-    height: 200,
-    // borderRadius: 4,
-    // margin: 8,
-    // flex: 1,
-    // borderWidth: 0.5,
-    // borderColor: Colors.grey,
+    height: 250,
+  },
+  row: {
+    marginBottom: 25
   }
 });

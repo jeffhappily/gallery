@@ -14,12 +14,12 @@ const styles = StyleSheet.create({
   searchIcon: {
     padding: 10,
     fontSize: 14,
-    color: Colors.grey
+    color: Colors.quiteGrey
   },
   input: {
     flex: 1,
     fontSize: 14,
-    color: Colors.grey
+    color: Colors.quiteGrey
   },
 })
 

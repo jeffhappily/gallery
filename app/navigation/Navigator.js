@@ -26,7 +26,7 @@ const App = StackNavigator(
   {
     headerMode: 'screen',
 		cardStyle: {
-	    backgroundColor: Colors.whiteSmoke
+	    backgroundColor: Colors.white
 	  }
   }
 )
