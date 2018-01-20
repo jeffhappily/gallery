@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json"
   },
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
     "react-native-config": "^0.11.5",
+    "react-native-fbsdk": "^0.7.0",
     "react-native-lightbox": "^0.7.0",
     "react-native-vector-icons": "^4.5.0",
     "react-navigation": "^1.0.0-beta.27",

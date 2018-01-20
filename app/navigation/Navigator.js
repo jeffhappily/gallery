@@ -5,6 +5,7 @@ import Splash from '../screens/Splash';
 import React from 'react';
 import Main from '../screens/Main';
 import PictureShow from '../screens/PictureShow';
+import LogIn from '../screens/LogIn';
 
 
 const App = StackNavigator(
@@ -15,13 +16,14 @@ const App = StackNavigator(
         header: () => null,
       }
     },
-	  Main : {
+	  Main: {
 			screen: Main,
 			navigationOptions: {
         header: () => null,
       }
 		},
-	  PictureShow : {screen: PictureShow},
+		LogIn: {screen: LogIn},
+	  PictureShow: {screen: PictureShow},
 	},
   {
     headerMode: 'screen',

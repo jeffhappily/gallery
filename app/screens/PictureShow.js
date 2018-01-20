@@ -19,12 +19,9 @@ export default class PictureShow extends Component {
     },
   });
 
-  componentWillMount() {
-    // debugger
-  }
-
   render() {
     let image = this.props.navigation.state.params.image;
+
     return (
       <ScrollView style={styles.container}>
         <Lightbox>
