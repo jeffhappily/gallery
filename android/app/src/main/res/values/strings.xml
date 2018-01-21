@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">gallery</string>
+    <string name="facebook_app_id">@string/FACEBOOK_APP_ID</string>
+    <string name="fb_login_protocol_scheme">@string/FB_LOGIN_PROTOCOL_SCHEME</string>
 </resources>

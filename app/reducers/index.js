@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
 import images from './images';
+import auth from './auth';
+import nav from './nav';
 
 const rootReducer = combineReducers({
-  images
+  images,
+  auth,
+  nav
 })
 
-export default rootReducer
+export default rootReducer;

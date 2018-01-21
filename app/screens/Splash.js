@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ActivityIndicator } from 'react-native';
-import { NavigationActions } from 'react-navigation'
+import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
+import { validateUser } from '../actions/auth';
+
 
 const resetAction = NavigationActions.reset({
   index: 0,
   actions: [
-    NavigationActions.navigate({ routeName: 'Main'})
+    NavigationActions.navigate({ routeName: 'LogIn'})
   ]
 });
 
-export default class Splash extends Component {
+class Splash extends Component {
   componentDidMount() {
-    this.props.navigation.dispatch(resetAction)
+    this.props.dispatch(validateUser());
   }
 
   render() {
@@ -37,3 +40,9 @@ const styles = StyleSheet.create({
     margin: 10
   }
 });
+
+const mapStateToProps = state => ({
+  currentUser: state.auth.currentUser
+});
+
+export default connect(mapStateToProps)(Splash);

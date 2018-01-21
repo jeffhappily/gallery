@@ -22,7 +22,12 @@ const App = StackNavigator(
         header: () => null,
       }
 		},
-		LogIn: {screen: LogIn},
+		LogIn: {
+			screen: LogIn,
+			navigationOptions: {
+        header: () => null,
+      }
+		},
 	  PictureShow: {screen: PictureShow},
 	},
   {
