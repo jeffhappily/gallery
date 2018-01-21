@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ActivityIndicator } from 'react-native';
-import { LoginButton, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+import { LoginButton, AccessToken } from 'react-native-fbsdk';
 import { connect } from 'react-redux';
 import { logInUser } from '../actions/auth'
 
 class LogIn extends Component {
-  _responseInfoCallback = (error, result) => {
-    if (error) {
-      alert('Error fetching data: ' + error.toString());
-    } else {
-      let user = {
-        name: result.name,
-        picture: result.picture.data.url
-      }
-      this.props.logInUser(user)
-    }
-  }
-
   render() {
     return (
       <View style={styles.container}>
@@ -31,17 +19,7 @@ class LogIn extends Component {
                 } else if (result.isCancelled) {
                   alert("login is cancelled.");
                 } else {
-                  AccessToken.getCurrentAccessToken().then(
-                    (data) => {
-                      const infoRequest = new GraphRequest(
-                        '/me?fields=name,picture',
-                        null,
-                        this._responseInfoCallback
-                      );
-                      // Start the graph request.
-                      new GraphRequestManager().addRequest(infoRequest).start();
-                    }
-                  )
+                  debugger
                 }
               }
             }

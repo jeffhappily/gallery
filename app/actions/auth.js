@@ -1,5 +1,5 @@
 import { NavigationActions } from 'react-navigation';
-import { AccessToken } from 'react-native-fbsdk';
+import { AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
 
 
 const resetNavigate = routeName => (
@@ -24,7 +24,7 @@ const _responseInfoCallback = (error, result) => {
       name: result.name,
       picture: result.picture.data.url
     }
-    logInUser(user)
+    this.dispatch(logInUser(user))
   }
 }
 
@@ -34,13 +34,16 @@ export const logInUser = user => dispatch => {
 }
 
 export const validateUser = () => dispatch => {
+  let self = this;
+  self.dispatch = dispatch;
+
   AccessToken.getCurrentAccessToken().then(
     (data) => {
       if (data) {
         const infoRequest = new GraphRequest(
           '/me?fields=name,picture',
           null,
-          _responseInfoCallback
+          _responseInfoCallback.bind(self)
         );
         // Start the graph request.
         new GraphRequestManager().addRequest(infoRequest).start();
