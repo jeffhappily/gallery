@@ -6,6 +6,18 @@ import Colors from '../constants/Colors';
 import { PictureList } from '../components/List';
 
 class Main extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerTintColor: Colors.white,
+    headerStyle: {
+      elevation: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.15)',
+      position: 'absolute',
+      top: -2,
+      left: 0,
+      right: 0,
+    },
+  });
+
   componentWillMount() {
     this.props.fetchImages()
   }

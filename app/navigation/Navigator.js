@@ -1,4 +1,4 @@
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 import Splash from '../screens/Splash';
@@ -6,7 +6,18 @@ import React from 'react';
 import Main from '../screens/Main';
 import PictureShow from '../screens/PictureShow';
 import LogIn from '../screens/LogIn';
+import Drawer from '../components/Drawer';
 
+const MyDrawer = DrawerNavigator(
+	{
+		Main: {
+			screen: Main,
+		},
+	},
+	{
+		contentComponent: props => <Drawer {...props} />
+	}
+);
 
 const App = StackNavigator(
 	{
@@ -17,7 +28,7 @@ const App = StackNavigator(
       }
     },
 	  Main: {
-			screen: Main,
+			screen: MyDrawer,
 			navigationOptions: {
         header: () => null,
       }
@@ -36,6 +47,6 @@ const App = StackNavigator(
 	    backgroundColor: Colors.white
 	  }
   }
-)
+);
 
 export default App;

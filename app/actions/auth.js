@@ -33,6 +33,13 @@ export const logInUser = user => dispatch => {
   dispatch(resetNavigate('Main'));
 }
 
+export const logOutUser = () => dispatch => {
+  let user = {}
+  dispatch(setCurrentUser(user));
+  dispatch(resetNavigate('LogIn'));
+  alert("Log out successfully");
+}
+
 export const validateUser = () => dispatch => {
   let self = this;
   self.dispatch = dispatch;

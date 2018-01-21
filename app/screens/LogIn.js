@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ActivityIndicator } from 'react-native';
-import { LoginButton, AccessToken } from 'react-native-fbsdk';
+import { LoginButton } from 'react-native-fbsdk';
 import { connect } from 'react-redux';
-import { logInUser } from '../actions/auth'
+import { validateUser, logOutUser } from '../actions/auth';
 
 class LogIn extends Component {
   render() {
@@ -13,17 +13,19 @@ class LogIn extends Component {
           <LoginButton
             readPermissions={["email","public_profile"]}
             onLoginFinished={
-              (error, result) => {
+              function(error, result) {
                 if (error) {
                   alert("login has error: " + result.error);
                 } else if (result.isCancelled) {
                   alert("login is cancelled.");
                 } else {
-                  debugger
+                  this.props.dispatch(validateUser());
                 }
-              }
+              }.bind(this)
             }
-            onLogoutFinished={() => alert("logout.")}/>
+            onLogoutFinished={function () {
+              this.props.dispatch(logOutUser())
+            }.bind(this)}/>
         </View>
       </View>
     );
@@ -44,10 +46,4 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapDispatchToProps = dispatch => ({
-  logInUser: user => {
-    dispatch(logInUser(user))
-  }
-});
-
-export default connect(null, mapDispatchToProps)(LogIn);
+export default connect(null)(LogIn);
