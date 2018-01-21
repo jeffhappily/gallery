@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+
 import { fetchFeaturedImages } from '../actions/images';
 import Colors from '../constants/Colors';
 import { PictureList } from '../components/List';
+import Menu from '../components/Menu';
 
 class Main extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    headerTintColor: Colors.white,
-    headerStyle: {
-      elevation: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.15)',
-      position: 'absolute',
-      top: -2,
-      left: 0,
-      right: 0,
-    },
-  });
+  // static navigationOptions = ({ navigation }) => ({
+  //   headerStyle: {
+  //     elevation: 0,
+  //     backgroundColor: 'transparent',
+  //   },
+  //   headerLeft: (
+  //     <Menu onPress={() => navigation.navigate('DrawerOpen')} />
+  //   ),
+  // });
 
   componentWillMount() {
     this.props.fetchImages()

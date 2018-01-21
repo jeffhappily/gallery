@@ -7,6 +7,7 @@ import Main from '../screens/Main';
 import PictureShow from '../screens/PictureShow';
 import LogIn from '../screens/LogIn';
 import Drawer from '../components/Drawer';
+import Menu from '../components/Menu';
 
 const MyDrawer = DrawerNavigator(
 	{
@@ -29,9 +30,15 @@ const App = StackNavigator(
     },
 	  Main: {
 			screen: MyDrawer,
-			navigationOptions: {
-        header: () => null,
-      }
+			navigationOptions: ({ navigation }) => ({
+		    headerStyle: {
+		      elevation: 0,
+		      backgroundColor: 'transparent',
+		    },
+		    headerLeft: (
+		      <Menu onPress={() => navigation.navigate('DrawerToggle')} />
+		    ),
+		  })
 		},
 		LogIn: {
 			screen: LogIn,
