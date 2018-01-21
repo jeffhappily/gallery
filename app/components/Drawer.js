@@ -8,12 +8,13 @@ import Avatar from './Avatar';
 import Colors from '../constants/Colors';
 
 
-const Drawer = ({ currentUser, dispatch }) => (
+const Drawer = ({ currentUser, dispatch, ...props }) => (
   <ScrollView>
     <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
       <Avatar source={currentUser.picture} />
       <Text style={styles.title}>{currentUser.name}</Text>
       <View>
+        <DrawerItems {...props} />
         <LoginButton
           readPermissions={["email","public_profile"]}
           onLogoutFinished={() => {
