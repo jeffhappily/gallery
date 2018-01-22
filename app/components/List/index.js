@@ -1,3 +1,4 @@
 import PictureList from './PictureList';
+import FieldList from './FieldList';
 
-export { PictureList };
+export { PictureList, FieldList };

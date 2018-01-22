@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
-import { fetchFeaturedImages } from '../actions/images';
+import { fetchFeaturedImages, fetchFields } from '../actions/images';
 import Colors from '../constants/Colors';
-import { PictureList } from '../components/List';
+import { PictureList, FieldList } from '../components/List';
 
 class Main extends Component {
   componentWillMount() {
-    this.props.fetchImages()
+    this.props.dispatch(fetchFeaturedImages());
+    this.props.dispatch(fetchFields());
   }
 
   render() {
@@ -18,6 +19,9 @@ class Main extends Component {
           title="Featured"
           images={this.props.images.featured}
           onPicturePress={image => this.props.navigation.navigate('PictureShow', {image})} />
+        <FieldList
+          title="Fields"
+          fields={this.props.images.fields} />
       </ScrollView>
     );
   }
@@ -36,13 +40,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  images: state.images
+  images: state.images,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchImages: () => {
-    dispatch(fetchFeaturedImages())
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps)(Main);

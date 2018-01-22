@@ -14,7 +14,6 @@ const Drawer = ({ currentUser, dispatch, ...props }) => (
       <Avatar source={currentUser.picture} />
       <Text style={styles.title}>{currentUser.name}</Text>
       <View>
-        <DrawerItems {...props} />
         <LoginButton
           readPermissions={["email","public_profile"]}
           onLogoutFinished={() => {
