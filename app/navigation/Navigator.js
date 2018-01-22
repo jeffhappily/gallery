@@ -5,6 +5,7 @@ import Splash from '../screens/Splash';
 import React from 'react';
 import Main from '../screens/Main';
 import PictureShow from '../screens/PictureShow';
+import PictureIndex from '../screens/PictureIndex';
 import LogIn from '../screens/LogIn';
 import Drawer from '../components/Drawer';
 import Menu from '../components/Menu';
@@ -47,6 +48,7 @@ const App = StackNavigator(
       }
 		},
 	  PictureShow: {screen: PictureShow},
+	  PictureIndex: {screen: PictureIndex},
 	},
   {
     headerMode: 'screen',

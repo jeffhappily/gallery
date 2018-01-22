@@ -9,6 +9,15 @@ const styles = StyleSheet.create({
     margin: 8,
     flex: 1,
   },
+  verticalPictureCard: {
+    // height: 200,
+    // alignSelf: 'stretch',
+    borderColor: Colors.kindOfGrey,
+    borderWidth: 1,
+    borderRadius: 4,
+    margin: 8,
+    flex: 1,
+  },
   fieldCard: {
     height: 200,
     width: 140,

@@ -18,10 +18,11 @@ class Main extends Component {
         <PictureList
           title="Featured"
           images={this.props.images.featured}
-          onPicturePress={image => this.props.navigation.navigate('PictureShow', {image})} />
+          onPicturePress={image => this.props.navigation.navigate('PictureShow', { image })} />
         <FieldList
           title="Fields"
-          fields={this.props.images.fields} />
+          fields={this.props.images.fields}
+          onFieldPress={field => this.props.navigation.navigate('PictureIndex', { field })} />
       </ScrollView>
     );
   }

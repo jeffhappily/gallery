@@ -26,7 +26,7 @@ export default class PictureShow extends Component {
       <ScrollView style={styles.container}>
         <Lightbox>
           <Image
-            source={{ uri: image.covers.original }}
+            source={{ uri: image.covers[404] }}
             style={styles.image} />
         </Lightbox>
         <View style={styles.details}>
