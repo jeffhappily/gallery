@@ -21,7 +21,7 @@ class Splash extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>GalleryApp</Text>
-        <ActivityIndicator animating={true} size={30} />
+        <ActivityIndicator animating={true} />
       </View>
     );
   }
