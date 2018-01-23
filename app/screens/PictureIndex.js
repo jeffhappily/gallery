@@ -8,7 +8,6 @@ import { PictureList } from '../components/List';
 
 class PictureIndex extends Component {
   static navigationOptions = ({ navigation }) => ({
-    headerTintColor: Colors.grey,
     headerStyle: {
       elevation: 0,
       backgroundColor: 'transparent',

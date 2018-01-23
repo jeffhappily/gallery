@@ -10,8 +10,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   verticalPictureCard: {
-    // height: 200,
-    // alignSelf: 'stretch',
     borderColor: Colors.kindOfGrey,
     borderWidth: 1,
     borderRadius: 4,
@@ -33,10 +31,27 @@ const styles = StyleSheet.create({
     margin: 10,
     color: Colors.darkGrey
   },
+  small: {
+    fontSize: 20
+  },
   fieldText: {
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: Colors.white
+  },
+  filterList: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: Colors.quiteGrey,
+    margin: 5
+  },
+  activeFilterList: {
+    backgroundColor: Colors.quiteGrey
+  },
+  activeFilterText: {
     color: Colors.white
   }
 });

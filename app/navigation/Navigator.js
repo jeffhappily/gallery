@@ -7,8 +7,9 @@ import Main from '../screens/Main';
 import PictureShow from '../screens/PictureShow';
 import PictureIndex from '../screens/PictureIndex';
 import LogIn from '../screens/LogIn';
+import SearchScreen from '../screens/Search';
 import Drawer from '../components/Drawer';
-import Menu from '../components/Menu';
+import { Menu, Search } from '../components/Icon';
 
 const MyDrawer = DrawerNavigator(
 	{
@@ -39,6 +40,9 @@ const App = StackNavigator(
 		    headerLeft: (
 		      <Menu onPress={() => navigation.navigate('DrawerToggle')} />
 		    ),
+				headerRight: (
+					<Search onPress={() => navigation.navigate('Search')} />
+				)
 		  })
 		},
 		LogIn: {
@@ -49,12 +53,14 @@ const App = StackNavigator(
 		},
 	  PictureShow: {screen: PictureShow},
 	  PictureIndex: {screen: PictureIndex},
+		Search: {screen: SearchScreen}
 	},
   {
     headerMode: 'screen',
+		initialRouteName: 'Search',
 		cardStyle: {
 	    backgroundColor: Colors.white
-	  }
+	  },
   }
 );
 
