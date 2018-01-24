@@ -4,4 +4,4 @@ export const selectImage = covers => {
 
   // return the highest definition other than original
   return covers[keys[keys.length - 2]]
-}
+};

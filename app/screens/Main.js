@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
 import { fetchFeaturedImages, fetchFields } from '../actions/images';
-import Colors from '../constants/Colors';
 import { PictureList, FieldList } from '../components/List';
 
 class Main extends Component {
@@ -34,10 +33,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10
   },
-  pictureList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap'
-  }
 });
 
 const mapStateToProps = state => ({

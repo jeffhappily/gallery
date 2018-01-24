@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
-
 const Menu = ({ onPress }) => (
   <View style={styles.container}>
     <TouchableOpacity onPress={onPress}>

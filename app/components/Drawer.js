@@ -1,14 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { DrawerItems, SafeAreaView } from 'react-navigation';
+import { SafeAreaView } from 'react-navigation';
 import { LoginButton } from 'react-native-fbsdk';
-import { validateUser, logOutUser } from '../actions/auth';
+import PropTypes from 'prop-types';
+import { logOutUser } from '../actions/auth';
 import Avatar from './Avatar';
 import Colors from '../constants/Colors';
 
 
-const Drawer = ({ currentUser, dispatch, ...props }) => (
+const Drawer = ({ currentUser, dispatch }) => (
   <ScrollView>
     <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
       <Avatar source={currentUser.picture} />
@@ -24,6 +25,11 @@ const Drawer = ({ currentUser, dispatch, ...props }) => (
     </SafeAreaView>
   </ScrollView>
 );
+
+Drawer.propTypes = {
+  currentUser: PropTypes.object,
+  dispatch: PropTypes.func
+};
 
 const styles = StyleSheet.create({
   container: {

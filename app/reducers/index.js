@@ -7,6 +7,6 @@ const rootReducer = combineReducers({
   images,
   auth,
   nav
-})
+});
 
 export default rootReducer;

@@ -18,6 +18,6 @@ const SearchBar = ({ onClick, placeholder }) => (
 SearchBar.propTypes = {
   onClick: PropTypes.func,
   placeholder: PropTypes.string
-}
+};
 
-export default SearchBar
+export default SearchBar;

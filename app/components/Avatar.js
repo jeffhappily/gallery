@@ -7,11 +7,11 @@ const Avatar = ({ source }) => (
     source={{ uri: source }}
     style={styles.avatar}
     />
-)
+);
 
 Avatar.propTypes = {
   source: PropTypes.string
-}
+};
 
 const styles = StyleSheet.create({
   avatar: {
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Avatar
+export default Avatar;

@@ -1,7 +1,8 @@
 const initialState = {
   fields: [],
   featured: []
-}
+};
+
 const images = (state = initialState, action) => {
   switch (action.type) {
     case "SET_FEATURED_IMAGES":
@@ -25,6 +26,6 @@ const images = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default images;

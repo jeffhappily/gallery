@@ -34,7 +34,7 @@ class Search extends Component {
       q: query,
       time: time,
       sort: sort.replace(/ /g, "_")
-    }
+    };
     this.props.navigation.navigate('PictureIndex', { query: data });
   }
 

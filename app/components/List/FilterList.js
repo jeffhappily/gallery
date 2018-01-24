@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, TouchableOpacity, ScrollView, View, Text } from 'react-native';
+import { TouchableOpacity, ScrollView, View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 const FilterList = ({ filters, onFilterPress, title, activeFilter }) => (
@@ -20,5 +21,12 @@ const FilterList = ({ filters, onFilterPress, title, activeFilter }) => (
   	</ScrollView>
   </View>
 );
+
+FilterList.propTypes = {
+  filters: PropTypes.arrayOf(PropTypes.string),
+  onFilterPress: PropTypes.func,
+  title: PropTypes.string,
+  activeFilter: PropTypes.string
+};
 
 export default FilterList;

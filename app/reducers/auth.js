@@ -1,6 +1,7 @@
 const initialState = {
   currentUser: null
-}
+};
+
 const auth = (state = initialState, action) => {
   switch (action.type) {
     case "LOG_IN":
@@ -17,6 +18,6 @@ const auth = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default auth;

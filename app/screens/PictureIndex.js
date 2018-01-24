@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { View, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 
 import { fetchImages } from '../actions/images';
@@ -38,7 +38,7 @@ class PictureIndex extends Component {
     this.props.navigation.setParams({
       onSearchBarClick: this.onSearchBarClick,
       keyword
-    })
+    });
 
     // to determine what fields to fetch from api
     let query;
@@ -49,7 +49,7 @@ class PictureIndex extends Component {
       }
     } else if (params.query) {
       query = ["query", Object.keys(params.query).map(function(key, index) {
-        return key + "=" + params.query[key]
+        return key + "=" + params.query[key];
       }).join("&")];
     }
     if (query) {
@@ -109,19 +109,11 @@ const styles = StyleSheet.create({
   },
   pictureList: {
     flexDirection: 'row',
-    // flexWrap: 'wrap'
   },
   column: {
     flex: 1,
     justifyContent: 'flex-start'
   },
-  title: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'left',
-    margin: 10,
-    color: Colors.darkGrey
-  }
 });
 
 const mapStateToProps = state => ({

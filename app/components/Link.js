@@ -17,11 +17,11 @@ const Link = ({ url, style, children }) => (
   <TouchableOpacity onPress={() => handleClick(url)}>
     <Text style={[style, styles.link]}>{children}</Text>
   </TouchableOpacity>
-)
+);
 
 Link.propTypes = {
   url: PropTypes.string.isRequired,
-}
+};
 
 const styles = StyleSheet.create({
   link: {

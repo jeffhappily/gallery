@@ -3,7 +3,7 @@ import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
-import Colors from '../../constants/Colors'
+import Colors from '../../constants/Colors';
 
 const Close = ({ onPress }) => (
   <View style={styles.container}>

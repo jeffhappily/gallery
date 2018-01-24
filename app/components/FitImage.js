@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 export default class FitImage extends Component {
   constructor(props){
@@ -7,14 +8,14 @@ export default class FitImage extends Component {
     this.state = {
       imgHeight: 0,
       loading: true
-    }
+    };
 
     this.onLayout = this.onLayout.bind(this);
     this.resize = this.resize.bind(this);
   }
 
   onLayout(event){
-    let deviceWidth = event.nativeEvent.layout.width;
+    const deviceWidth = event.nativeEvent.layout.width;
 
     Image.getSize(this.props.source, (imgWidth, imgHeight) => {
       this.resize(deviceWidth, imgWidth, imgHeight);
@@ -37,3 +38,8 @@ export default class FitImage extends Component {
     )
   }
 }
+
+FitImage.propTypes = {
+  style: PropTypes.number,
+  source: PropTypes.string
+};

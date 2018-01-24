@@ -6,6 +6,6 @@ const Colors = {
   darkGrey: 'rgb(55, 56, 73)',
   kindaMint: 'rgb(100, 212, 199)',
   whiteSmoke: 'rgb(245, 245, 245)',
-}
+};
 
-export default Colors
+export default Colors;

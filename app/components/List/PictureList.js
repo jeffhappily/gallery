@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, TouchableOpacity, ScrollView, View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import FitImage from '../FitImage';
 import { selectImage } from '../../helpers/images';
@@ -35,6 +36,18 @@ PictureList.Vertical = ({ images, onPicturePress, title }) => (
       </TouchableOpacity>
     ))}
 	</View>
-)
+);
+
+PictureList.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object),
+  onPicturePress: PropTypes.func,
+  title: PropTypes.string
+};
+
+PictureList.Vertical.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object),
+  onPicturePress: PropTypes.func,
+  title: PropTypes.string
+};
 
 export default PictureList;

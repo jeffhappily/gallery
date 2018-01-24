@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, TouchableOpacity, ScrollView, View, Text } from 'react-native';
+import { TouchableOpacity, ScrollView, View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 const randomColorGenerator = () => {
@@ -9,7 +10,7 @@ const randomColorGenerator = () => {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
-}
+};
 
 const FieldList = ({ fields, onFieldPress, title }) => (
   <View>
@@ -29,5 +30,11 @@ const FieldList = ({ fields, onFieldPress, title }) => (
   	</ScrollView>
   </View>
 );
+
+FieldList.propTypes = {
+  fields: PropTypes.arrayOf(PropTypes.string),
+  onFieldPress: PropTypes.func,
+  title: PropTypes.string
+};
 
 export default FieldList;
