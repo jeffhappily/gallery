@@ -5,6 +5,7 @@ import Lightbox from 'react-native-lightbox';
 
 import Link from '../components/Link';
 import Colors from '../constants/Colors';
+import { selectImage } from '../helpers/images';
 
 export default class PictureShow extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -26,7 +27,7 @@ export default class PictureShow extends Component {
       <ScrollView style={styles.container}>
         <Lightbox>
           <Image
-            source={{ uri: image.covers[404] }}
+            source={{ uri: selectImage(image.covers) }}
             style={styles.image} />
         </Lightbox>
         <View style={styles.details}>

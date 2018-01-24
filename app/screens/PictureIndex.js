@@ -34,6 +34,7 @@ class PictureIndex extends Component {
     const { params } = this.props.navigation.state;
     const keyword = params.field || params.query.q;
 
+    // for header
     this.props.navigation.setParams({
       onSearchBarClick: this.onSearchBarClick,
       keyword

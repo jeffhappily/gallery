@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, TouchableOpacity, ScrollView, View, Text } from 'react-native';
 import styles from './styles';
 import FitImage from '../FitImage';
+import { selectImage } from '../../helpers/images';
 
 const PictureList = ({ images, onPicturePress, title }) => (
   <View>
@@ -15,7 +16,7 @@ const PictureList = ({ images, onPicturePress, title }) => (
           onPress={() => onPicturePress(image)}>
           <Image
             style={styles.pictureCard}
-            source={{ uri: image.covers[404] }} />
+            source={{ uri: selectImage(image.covers) }} />
         </TouchableOpacity>
       ))}
   	</ScrollView>
@@ -30,7 +31,7 @@ PictureList.Vertical = ({ images, onPicturePress, title }) => (
         onPress={() => onPicturePress(image)}>
         <FitImage
           style={styles.verticalPictureCard}
-          source={image.covers[404]} />
+          source={selectImage(image.covers)} />
       </TouchableOpacity>
     ))}
 	</View>

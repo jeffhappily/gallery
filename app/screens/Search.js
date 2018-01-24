@@ -30,10 +30,10 @@ class Search extends Component {
   handleSubmit() {
     let { time, sort, query } = this.state;
 
-    const data = {
+    let data = {
       q: query,
       time: time,
-      sort: sort
+      sort: sort.replace(/ /g, "_")
     }
     this.props.navigation.navigate('PictureIndex', { query: data });
   }
@@ -50,7 +50,8 @@ class Search extends Component {
             onSubmitEditing={() => this.handleSubmit()}
             onChangeText={query => this.setState({ query })}
             underlineColorAndroid='rgba(0,0,0,0)'
-            defaultValue={field} />
+            defaultValue={field}
+            autoFocus={true} />
         </View>
         <View style={styles.filters}>
           <FilterList
