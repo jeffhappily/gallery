@@ -30,11 +30,11 @@ export const fetchFields = () => dispatch => {
     });
 }
 
-export const fetchImages = field => dispatch => {
-  fetch(`${API_ENDPOINT}/projects?api_key=${Config.BEHANCE_API_KEY}&field=${field}`, {})
+export const fetchImages = (key, query) => dispatch => {
+  fetch(`${API_ENDPOINT}/projects?api_key=${Config.BEHANCE_API_KEY}&${query}`, {})
     .then(response => {
       dispatch(setImages({
-        [field]: JSON.parse(response._bodyInit).projects.slice(0, 20)
+        [key]: JSON.parse(response._bodyInit).projects.slice(0, 20)
       }));
     });
 }

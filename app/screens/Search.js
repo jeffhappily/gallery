@@ -11,6 +11,7 @@ class Search extends Component {
     headerStyle: {
       elevation: 0,
       backgroundColor: 'transparent',
+      borderBottomWidth: 0,
     },
     headerLeft: (
       <Close onPress={() => navigation.goBack()} />
@@ -20,36 +21,48 @@ class Search extends Component {
   constructor(props){
   	super(props);
   	this.state = {
-      timeFilter: "All",
-      sortFilter: "Featured Date"
+      time: "All",
+      sort: "Featured Date",
+      query: ""
     };
   }
 
-  handleSubmit(event) {
+  handleSubmit() {
+    let { time, sort, query } = this.state;
 
+    const data = {
+      q: query,
+      time: time,
+      sort: sort
+    }
+    this.props.navigation.navigate('PictureIndex', { query: data });
   }
 
   render() {
+    let field = this.props.navigation.state.params ? this.props.navigation.state.params.field : "";
+
     return (
       <View>
         <View style={styles.top}>
           <TextInput
             placeholder="Search for images..."
             style={styles.textInput}
-            onSubmitEditing={e => this.handleSubmit(e)}
-            underlineColorAndroid='rgba(0,0,0,0)' />
+            onSubmitEditing={() => this.handleSubmit()}
+            onChangeText={query => this.setState({ query })}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            defaultValue={field} />
         </View>
         <View style={styles.filters}>
           <FilterList
             filters={["All", "Today", "Week", "Month"]}
             title="Time"
-            activeFilter={this.state.timeFilter}
-            onFilterPress={filter => this.setState({timeFilter: filter})} />
+            activeFilter={this.state.time}
+            onFilterPress={filter => this.setState({time: filter})} />
           <FilterList
             filters={["Featured Date", "Appreciations", "Views", "Comments", "Published Date"]}
             title="Sort By"
-            activeFilter={this.state.sortFilter}
-            onFilterPress={filter => this.setState({sortFilter: filter})} />
+            activeFilter={this.state.sort}
+            onFilterPress={filter => this.setState({sort: filter})} />
         </View>
       </View>
     );
