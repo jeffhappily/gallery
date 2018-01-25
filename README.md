@@ -6,6 +6,7 @@ A mobile app that simply fetch images from Behance and display it, built using r
 ## Features
 * __FBSDK implemented__, able to sign in with Facebook.
 * __Search__, able to search for images with keyword, filter and sort.
+* Works on both __iOS__ and __Android__.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
